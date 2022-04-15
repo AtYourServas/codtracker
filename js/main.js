@@ -6,6 +6,8 @@ function getFetch() {
   const choice = document.querySelector('input').value
   const url = `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone-matches/${choice}/psn`
 
+  document.querySelector('.container').innerHTHML = ""
+
   const options = {
 	method: 'GET',
 	headers: {
