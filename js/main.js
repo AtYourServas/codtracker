@@ -5,8 +5,8 @@ document.querySelector('button').addEventListener('click', getFetch)
 function getFetch() {
   const choice = document.querySelector('input').value
   const url = `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone-matches/${choice}/psn`
+  document.querySelector('.container').innerHTML = ""
 
-  document.querySelector('.container').innerHTHML = ""
 
   const options = {
 	method: 'GET',
@@ -21,6 +21,7 @@ fetch(url, options)
 	.then(response => {
   console.log(response)
   let matches = response.matches
+  
 
   for (i = 0; i < 20; i++) {
     if (matches[i].mode == "br_brduos") {
