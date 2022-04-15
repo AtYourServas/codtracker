@@ -27,6 +27,7 @@ fetch(url, options)
     if (matches[i].mode == "br_brduos") {
         let player = matches[i].player
         let playerStats = matches[i].playerStats
+        let date = new Date(matches[i].utcStartSeconds * 1000)
 
         //create section
         const section = document.createElement('section')
@@ -40,6 +41,12 @@ fetch(url, options)
         //append ul to newly created section
         document.querySelector(`.match${i}`).appendChild(ul)
 
+        //create li to hold states within section
+        const li4 = document.createElement('li')
+        //add text to newly created li
+        li4.textContent = `Date: ${date}`
+        //append ul to newly created section
+        document.querySelector(`.list${i}`).appendChild(li4)
 
         //create li to hold states within section
         const li2 = document.createElement('li')
