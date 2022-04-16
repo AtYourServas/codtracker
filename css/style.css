@@ -10,6 +10,10 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
+body{
+  background: rgb(43, 47, 51)
+}
+
 img{
   display: block;
   margin: 0 auto;
@@ -17,6 +21,69 @@ img{
 
 }
 
+button {
+  background:rgb(240, 182, 28);
+  color: black;
+  border: none;
+  padding: 3px 5px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  flex: auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  margin-top: 25px;
+  margin-left: 9%;
+  margin-right: 9%;
+  display: flex;
+  justify-content: center;
+  flex: auto;
+  flex-flow: column nowrap;
+  max-width: 82%;
+  align-items: center;
+  border: 2px solid white;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px 20px;
+}
+
+ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.container section {
+  padding: 10px;
+  border-bottom: 2px solid white;
+}
+
+h4, p {
+  font-size: 16px;
+  text-align: center;
+}
+
+h4 {
+  font-weight: 700;
+  color: rgb(240, 182, 28);
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+p {
+  color: white;
+}
+
+h1 {
+  color: rgb(240, 182, 28);
+}
 
 /******************************************
 /* ADDITIONAL STYLES

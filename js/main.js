@@ -28,53 +28,60 @@ fetch(url, options)
         let player = matches[i].player
         let playerStats = matches[i].playerStats
         let date = new Date(matches[i].utcStartSeconds * 1000)
+        let formattedDate = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()} ${appendLeadingZeroes(date.getHours())}:${appendLeadingZeroes(date.getMinutes())}`
 
-        //create section
-        const section = document.createElement('section')
-        section.classList.add(`match${i}`)
-        //append section to container
-        document.querySelector('.container').appendChild(section)
+      createSection(i)
+      createList(i)
+      createStatItem(i, formattedDate, '')
+      createStatItem(i, 'Placement', playerStats.teamPlacement)
+      createStatItem(i, 'Kills', playerStats.kills)
+      createStatItem(i, 'Deaths', playerStats.deaths)
+      createStatItem(i, 'K/D Ratio', playerStats.kdRatio.toFixed(2))
+      createStatItem(i, 'Assists', playerStats.assists)
+      createStatItem(i, 'Headshots', playerStats.headshots)
+      createStatItem(i, 'Damage', playerStats.damageDone)
+      createStatItem(i, 'Damage Taken', playerStats.damageTaken)
 
-        //create ul to hold states within section
-        const ul = document.createElement('ul')
-        ul.classList.add(`list${i}`)
-        //append ul to newly created section
-        document.querySelector(`.match${i}`).appendChild(ul)
-
-        //create li to hold states within section
-        const li4 = document.createElement('li')
-        //add text to newly created li
-        li4.textContent = `Date: ${date}`
-        //append ul to newly created section
-        document.querySelector(`.list${i}`).appendChild(li4)
-
-        //create li to hold states within section
-        const li2 = document.createElement('li')
-        //add text to newly created li
-        li2.textContent = `Placement: ${playerStats.teamPlacement}`
-        //append ul to newly created section
-        document.querySelector(`.list${i}`).appendChild(li2)
-
-
-        //create li to hold states within section
-        const li = document.createElement('li')
-        //add text to newly created li
-        li.textContent = `Kills: ${playerStats.kills}`
-        //append ul to newly created section
-        document.querySelector(`.list${i}`).appendChild(li)
-
-
-        //create li to hold states within section
-        const li3 = document.createElement('li')
-        //add text to newly created li
-        li3.textContent = `Deaths: ${playerStats.deaths}`
-        //append ul to newly created section
-        document.querySelector(`.list${i}`).appendChild(li3)
     }
   }
 
-  
+
   })
 	.catch(err => console.error(err));
+
+//Functions
+
+function createSection(num) {
+    //create section
+    const section = document.createElement('section')
+    section.classList.add(`match${num}`)
+    //append section to container
+    document.querySelector('.container').appendChild(section)
+}
+
+function createList(num) {
+   //create ul to hold states within section
+  const ul = document.createElement('ul')
+  ul.classList.add(`list${i}`)
+  //append ul to newly created section
+  document.querySelector(`.match${i}`).appendChild(ul)
+}
+
+function createStatItem (num, title, stat) {
+ //create li to hold states within section
+ const li = document.createElement('li')
+ //add text to newly created li
+ li.innerHTML = `<h4>${title}</h4> <p>${stat}</p>`
+ //append ul to newly created section
+ document.querySelector(`.list${num}`).appendChild(li)
+}
+
+
+  function appendLeadingZeroes(n){
+    if(n <= 9){
+      return "0" + n;
+    }
+    return n
+  }
 
 }
