@@ -5,6 +5,7 @@
 /* Box Model Hack */
 *{
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 /******************************************
@@ -14,18 +15,17 @@ body{
   background: rgb(43, 47, 51)
 }
 
-img{
-  display: block;
-  margin: 0 auto;
-  max-width: 80%;
-
-}
 
 button {
   background:rgb(240, 182, 28);
   color: black;
   border: none;
   padding: 3px 5px;
+  font-size: 2rem;
+}
+
+input {
+  font-size: 2rem;
 }
 
 header {
@@ -66,8 +66,12 @@ ul {
 }
 
 h4, p {
-  font-size: 16px;
+  font-size: 1.5rem;
   text-align: center;
+}
+
+h1 {
+  font-size: 4rem;
 }
 
 h4 {
